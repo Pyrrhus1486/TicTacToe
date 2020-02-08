@@ -17,9 +17,10 @@ public class PresentationCase implements IObservable, IObservateur {
 
     private List<IObservateur> liste_observateurs;
 
-    public PresentationCase(Context arg_context){ // La présentation sera instanciée avec le contexte en argument. La grille, qui instanciera la présentation, recevra le contexte depuis l'agent global ?
+    public PresentationCase(Context arg_context, VueCase arg_ma_vue){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
+        //La présentation se voit aussi passer sa vue en argument, car la vue de sa case est instanciée par la vuePlateau.
 
-        laVue = new VueCase(arg_context);
+        laVue = arg_ma_vue;
 
         leModele = new ModelCase();
         leModele.ajouterObs(this);
@@ -28,7 +29,7 @@ public class PresentationCase implements IObservable, IObservateur {
     }
 
     @Override
-    public void notifier() { //Pour l'agent grille, qui est abonné à la présentation de chaque case.
+    public void notifier() { //Pour l'agent plateau, qui est abonné à la présentation de chaque case.
     for(IObservateur observateur : liste_observateurs){
        observateur.actualiser();
 

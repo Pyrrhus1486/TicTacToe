@@ -15,6 +15,7 @@ public class ModelPlateau {
             return EEtat.CROIX;
         }
 
+
         else{
             caseSuivante=EEtat.CROIX;
             return EEtat.CERCLE;

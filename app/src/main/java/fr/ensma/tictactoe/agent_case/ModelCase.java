@@ -34,7 +34,7 @@ public class ModelCase implements IObservable {
     public void ajouterObs(IObservateur arg_obs) {
 
         liste_observateurs.add(arg_obs);
-        continue;
+
 
     }
 }

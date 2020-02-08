@@ -48,6 +48,7 @@ public class VueCase extends LinearLayout {
             imageCercle.setVisibility(View.VISIBLE);
             imageCroix.setVisibility(View.INVISIBLE);
     }
+
     public void mettreCroix () {
 
         imageCroix.setVisibility(View.VISIBLE);

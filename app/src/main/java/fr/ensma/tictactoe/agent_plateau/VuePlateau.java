@@ -10,8 +10,7 @@ import fr.ensma.tictactoe.agent_case.VueCase;
 
 public class VuePlateau extends GridLayout {
 
-
-
+    private VueCase V11;
     private VueCase V12;
     private VueCase V13;
     private VueCase V21;
@@ -61,7 +60,9 @@ public class VuePlateau extends GridLayout {
         return V11;
     }
 
-    private VueCase V11;
+    public VueCase getV12() {
+        return V11;
+    }
 
     public VueCase getV13() {
         return V13;
