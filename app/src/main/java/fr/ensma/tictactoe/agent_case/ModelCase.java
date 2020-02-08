@@ -27,7 +27,6 @@ public class ModelCase implements IObservable {
         for(IObservateur observateur : liste_observateurs){
             observateur.actualiser();
 
-
         }
     }
 
