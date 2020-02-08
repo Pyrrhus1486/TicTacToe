@@ -6,8 +6,8 @@ import fr.ensma.tictactoe.observation.IObservable;
 import fr.ensma.tictactoe.observation.IObservateur;
 import fr.ensma.tictactoe.types_base.EEtat;
 
-public class ModelCase implements IObservable {
 
+public class ModelCase implements IObservable {
 
 
     private List<IObservateur> liste_observateurs;
