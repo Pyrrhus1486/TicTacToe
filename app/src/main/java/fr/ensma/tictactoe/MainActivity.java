@@ -5,18 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import fr.ensma.tictactoe.agent_case.VueCase;
+import fr.ensma.tictactoe.agent_global.VueJeu;
 
 public class MainActivity extends AppCompatActivity {
 
     private VueCase case1;
-    private VueCase case2;
-    private VueCase case3;
-    private VueCase case4;
-    private VueCase case5;
-    private VueCase case6;
-    private VueCase case7;
-    private VueCase case8;
-    private VueCase case9;
+    private VueJeu leJeu;
 
 
 
@@ -26,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        case1 = findViewById(R.id.case1);
-        case1.mettreCercle();
+        leJeu = findViewById(R.id.leJeuId);
+       // case1 = findViewById(R.id.case1);
+      //  case1.mettreCercle();
+
+
 
     }
 }

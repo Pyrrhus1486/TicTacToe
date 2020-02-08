@@ -45,7 +45,7 @@ public class VueCase extends LinearLayout {
         imageCercle = laRacine.findViewById(R.id.imageCercleId);
         imageCroix = laRacine.findViewById(R.id.imageCroixId);
 
-            imageCercle.setVisibility(View.INVISIBLE);
+            imageCercle.setVisibility(View.VISIBLE);
             imageCroix.setVisibility(View.INVISIBLE);
     }
     public void mettreCroix () {
