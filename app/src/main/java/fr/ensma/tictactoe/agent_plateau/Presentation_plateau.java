@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.ensma.tictactoe.agent_case.PresentationCase;
-import fr.ensma.tictactoe.observation.IObservateur;
 import fr.ensma.tictactoe.observation.IObservateurPlateau;
 
 import android.content.Context;
@@ -33,17 +32,17 @@ public class Presentation_plateau implements IObservateurPlateau {
 
     }
 
-    public void instancierPresentations(Context arg_context){//On instancie les présentations, en leur passant en référence les vueCase qui ont été instanciées par la vuePlateau.
+    public void instancierPresentations(Context arg_context){//On instancie les présentations, en leur passant en référence les VueCases qui ont été instanciées par la vuePlateau, et les ModelCases instanciées par le modelPlateau
 
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV11()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV12()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV13()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV21()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV22()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV23()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV31()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV32()));
-        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV33()));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV11(), modelPlateau.getPlateau()[0][0]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV12(), modelPlateau.getPlateau()[0][1]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV13(), modelPlateau.getPlateau()[0][2]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV21(), modelPlateau.getPlateau()[1][0]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV22(), modelPlateau.getPlateau()[1][1]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV23(), modelPlateau.getPlateau()[1][2]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV31(), modelPlateau.getPlateau()[2][0]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV32(), modelPlateau.getPlateau()[2][1]));
+        listePresentations.add(new PresentationCase( arg_context, vuePlateau.getV33(), modelPlateau.getPlateau()[2][2]));
 
     }
 
@@ -55,6 +54,7 @@ public class Presentation_plateau implements IObservateurPlateau {
 
     @Override
     public void actualiserPresPlateau(PresentationCase arg_pres) {
+    modelPlateau.modifierCase(arg_pres.getLeModele());
 
     }
 

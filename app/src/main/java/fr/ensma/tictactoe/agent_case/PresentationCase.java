@@ -15,17 +15,20 @@ import android.content.Context;
 public class PresentationCase implements IObservablePlateau, IObservateur {
 
     private VueCase laVue;
+
+
+
     private ModelCase leModele;
 
 
     private List<IObservateurPlateau> liste_observateurs;
 
-    public PresentationCase(Context arg_context, VueCase arg_ma_vue){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
-        //La présentation se voit aussi passer sa vue en argument, car la vue de sa case est instanciée par la vuePlateau.
+    public PresentationCase(Context arg_context, VueCase arg_ma_vue, ModelCase arg_mon_modele){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
 
         laVue = arg_ma_vue;
+        laVue.setPres(this);
 
-        leModele = new ModelCase();
+        leModele = arg_mon_modele;
         leModele.ajouterObs(this);
 
         liste_observateurs = new ArrayList<IObservateurPlateau>();
@@ -33,7 +36,7 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     }
 
     @Override
-    public void notifier() { //Pour l'agent plateau, qui est abonné à la présentation de chaque case.
+    public void notifierPlateau() { //Pour la présentation plateau, qui est abonné à la présentation de chaque case.
     for(IObservateurPlateau observateur : liste_observateurs){
        observateur.actualiserPresPlateau(this);
 
@@ -52,17 +55,16 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
 
     public void case_cliquee(){
-
-        notifier();
+        notifierPlateau();
     }
 
 
     @Override
-    public void actualiser() {
+    public void actualiser()  {
     EEtat tamp = leModele.getEtatCase();
       switch (tamp){
           case  CLIQUABLE:
-            //TODO
+            break; //Ajouter la gestion de l'erreur. (Avec la construction actuelle, elle ne devrait jamais arriver);
 
           case CROIX:
          laVue.mettreCroix();
@@ -72,5 +74,8 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
         }
     }
 
+    public ModelCase getLeModele() {
+        return leModele;
+    }
 
 }

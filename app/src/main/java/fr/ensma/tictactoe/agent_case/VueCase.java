@@ -17,6 +17,9 @@ public class VueCase extends LinearLayout {
 
 
 
+    private PresentationCase pres;
+
+
 
 
 
@@ -49,6 +52,10 @@ public class VueCase extends LinearLayout {
             imageCroix.setVisibility(View.INVISIBLE);
     }
 
+    public void setPres(PresentationCase pres) {
+        this.pres = pres;
+    }
+
     public void mettreCroix () {
 
         imageCroix.setVisibility(View.VISIBLE);
@@ -59,7 +66,7 @@ public class VueCase extends LinearLayout {
     }
 
     public void cliquee(){
-
+    pres.case_cliquee();
     }
 
 }

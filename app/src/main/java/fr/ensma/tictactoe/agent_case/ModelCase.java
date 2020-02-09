@@ -13,6 +13,14 @@ public class ModelCase implements IObservable {
     private List<IObservateur> liste_observateurs;
     private EEtat etatCase;
 
+
+    public ModelCase(){
+
+        etatCase= EEtat.CLIQUABLE;
+
+    }
+
+
     public void setEtatCase(EEtat etatCase) {
         this.etatCase = etatCase;
         notifier();
