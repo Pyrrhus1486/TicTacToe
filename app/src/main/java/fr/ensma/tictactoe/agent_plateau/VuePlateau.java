@@ -27,9 +27,9 @@ public class VuePlateau extends GridLayout {
         initVue(context);
     }
 
-    public VuePlateau(Context context, AttributeSet attrs, View laRacine) {
+    public VuePlateau(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.laRacine = laRacine;
+        initVue(context);
     }
     public VuePlateau(Context ctx, AttributeSet attrs, int defStyle) {
         super(ctx, attrs, defStyle);

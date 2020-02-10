@@ -1,8 +1,10 @@
 package fr.ensma.tictactoe.agent_case;
 
 import android.content.Context;
+import android.media.Image;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -11,9 +13,9 @@ import java.util.List;
 import fr.ensma.tictactoe.R;
 
 public class VueCase extends LinearLayout {
-    private ImageView imageCercle;
-    private ImageView imageCroix;
+    private ImageButton leBoutonImage;
     private View laRacine;
+    private Image ic_cercle;
 
 
 
@@ -45,11 +47,14 @@ public class VueCase extends LinearLayout {
     private void initVue(Context ctx) {
         parameter = 0;
         laRacine = inflate(ctx, R.layout.activity_case, this);
-        imageCercle = laRacine.findViewById(R.id.imageCercleId);
-        imageCroix = laRacine.findViewById(R.id.imageCroixId);
+        leBoutonImage = laRacine.findViewById(R.id.imageBoutonId);
+        leBoutonImage.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                cliquee();
+            }
+                                         });
 
-            imageCercle.setVisibility(View.VISIBLE);
-            imageCroix.setVisibility(View.INVISIBLE);
+        // leBoutonImage.setBackgroundResource(R.drawable.ic_cross);
     }
 
     public void setPres(PresentationCase pres) {
@@ -57,16 +62,17 @@ public class VueCase extends LinearLayout {
     }
 
     public void mettreCroix () {
+    leBoutonImage.setBackgroundResource(R.drawable.ic_cross);
 
-        imageCroix.setVisibility(View.VISIBLE);
     }
     public void mettreCercle () {
-
-        imageCercle.setVisibility(View.VISIBLE);
+        leBoutonImage.setBackgroundResource(R.drawable.ic_circle);
     }
 
     public void cliquee(){
     pres.case_cliquee();
     }
+
+
 
 }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -17,12 +16,14 @@ import fr.ensma.tictactoe.agent_plateau.VuePlateau;
 
 public class VueJeu extends ConstraintLayout {
     private View laRacine;
+
+
     private VuePlateau lePlateau;
     private Button leBouton;     // PLAY (PLAY/REPLAY  sans changement)
     private TextView leLabel;   // affiche le label du jeu : TICTACTOE
     private TextView leLabelVictoire; //va afficher le gagnant à la fin de partie;
     private ProgressBar leBar;
-
+    private ConstraintLayout leRoot;
 
 
 
@@ -45,7 +46,9 @@ public class VueJeu extends ConstraintLayout {
 
 
     private void initVue(Context context) {
+        leRoot =  laRacine.findViewById(R.id.rootId);
         laRacine = inflate(context, R.layout.activity_jeu, this);
+
         leBouton = laRacine.findViewById(R.id.buttonPlayId);
         lePlateau = laRacine.findViewById(R.id.plateauId);
         leLabel = laRacine.findViewById(R.id.textViewId);
