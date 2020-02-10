@@ -45,8 +45,8 @@ public class VueCase extends LinearLayout {
     private void initVue(Context ctx) {
         parameter = 0;
         laRacine = inflate(ctx, R.layout.activity_case, this);
-        imageCercle = laRacine.findViewById(R.id.imageCercleId);
-        imageCroix = laRacine.findViewById(R.id.imageCroixId);
+      //  imageCercle = laRacine.findViewById(R.id.imageCercleId);
+       // imageCroix = laRacine.findViewById(R.id.imageCroixId);
 
             imageCercle.setVisibility(View.VISIBLE);
             imageCroix.setVisibility(View.INVISIBLE);
