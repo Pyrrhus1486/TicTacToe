@@ -1,40 +1,30 @@
 package fr.ensma.tictactoe.agent_case;
 
 import android.content.Context;
-import android.media.Image;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 import fr.ensma.tictactoe.R;
 
-public class VueCase extends LinearLayout {
+public class VueCase extends LinearLayout implements View.OnClickListener{
     private ImageButton leBoutonImage;
     private View laRacine;
-    private Image ic_cercle;
-
-
 
     private PresentationCase pres;
-
-
-
-
-
-    private Integer parameter;
 
     public VueCase(Context ctx) {
 
         super(ctx);
+
         initVue(ctx);
     }
 
     public VueCase(Context ctx, AttributeSet attrs) {
         super(ctx,attrs);
+
         initVue(ctx);
     }
     public VueCase(Context ctx, AttributeSet attrs, int defStyle) {
@@ -43,17 +33,17 @@ public class VueCase extends LinearLayout {
     }
 
 
-
     private void initVue(Context ctx) {
-        parameter = 0;
+
         laRacine = inflate(ctx, R.layout.activity_case, this);
         leBoutonImage = laRacine.findViewById(R.id.imageBoutonId);
-        leBoutonImage.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                cliquee();
-            }
-                                         });
+        Log.d("TicTacToe : VueCase", "Instantiation");
 
+        //pres = new PresentationCase();
+        //ModelCase m = new ModelCase();
+
+
+        leBoutonImage.setOnClickListener(this);
         // leBoutonImage.setBackgroundResource(R.drawable.ic_cross);
     }
 
@@ -63,16 +53,23 @@ public class VueCase extends LinearLayout {
 
     public void mettreCroix () {
     leBoutonImage.setBackgroundResource(R.drawable.ic_cross);
-
+    //TODO change joeur
     }
     public void mettreCercle () {
         leBoutonImage.setBackgroundResource(R.drawable.ic_circle);
+    //TODO : change joeur
     }
 
     public void cliquee(){
-    pres.case_cliquee();
+        Log.d("TicTacToe : VueCase", "CaseCliquee");
+
+        pres.case_cliquee();
     }
 
 
+    @Override
+    public void onClick(View v) {
 
+        cliquee();
+    }
 }

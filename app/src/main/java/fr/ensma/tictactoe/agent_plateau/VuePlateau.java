@@ -2,14 +2,17 @@ package fr.ensma.tictactoe.agent_plateau;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.LinearLayout;
 
 import fr.ensma.tictactoe.R;
 import fr.ensma.tictactoe.agent_case.VueCase;
 
-public class VuePlateau extends GridLayout {
+public class VuePlateau extends LinearLayout {
 
+ //   private GridLayout leGridLayout;
     private VueCase V11;
     private VueCase V12;
     private VueCase V13;
@@ -36,8 +39,15 @@ public class VuePlateau extends GridLayout {
         initVue(ctx);
     }
 
+/*    public GridLayout getLeGridLayout() {
+        return leGridLayout;
+    }*/
+
     private void initVue(Context ctx) {
         laRacine = inflate(ctx, R.layout.activity_plateau, this);
+        Log.d("TicTacToe : VuePlateau", "Instantiation");
+
+        //leGridLayout = laRacine.findViewById(R.id.plateauId);
         V11 = laRacine.findViewById(R.id.case11);
         V12 = laRacine.findViewById(R.id.case12);
         V13 = laRacine.findViewById(R.id.case13);
@@ -51,17 +61,17 @@ public class VuePlateau extends GridLayout {
 
 
 
-    public void cliquee(VueCase v) {
+/*    public void cliquee(VueCase v) {
         v.cliquee();
 
-    }
+    }*/
 
     public VueCase getV11() {
         return V11;
     }
 
     public VueCase getV12() {
-        return V11;
+        return V12;
     }
 
     public VueCase getV13() {

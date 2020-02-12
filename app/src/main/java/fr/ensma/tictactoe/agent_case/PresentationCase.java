@@ -35,6 +35,8 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
     }
 
+
+
     @Override
     public void notifierPlateau() { //Pour la présentation plateau, qui est abonné à la présentation de chaque case.
     for(IObservateurPlateau observateur : liste_observateurs){
