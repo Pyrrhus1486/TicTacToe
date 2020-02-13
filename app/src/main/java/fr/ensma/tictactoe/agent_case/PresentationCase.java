@@ -27,14 +27,15 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
     private List<IObservateurPlateau> liste_observateurs;
 
-    public PresentationCase(Context arg_context, VueCase arg_ma_vue, ModelCase arg_mon_modele){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
+    public PresentationCase(Context arg_context, VueCase arg_ma_vue){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
         Log.d("TicTacToe : Pres_Case", "Instantiation");
         laVue = arg_ma_vue;
         laVue.setPres(this);
-
-        leModele = arg_mon_modele;
+        Log.d("TicTacToe : Pres_Case", "Instantiation - model");
+        leModele = new ModelCase();
+        Log.d("TicTacToe : Pres_Case", "Instantiation - le modele ajouté");
         leModele.ajouterObs(this);
-
+        Log.d("TicTacToe : Pres_Case", "Instantiation - observateur ajouté");
         liste_observateurs = new ArrayList<IObservateurPlateau>();
 
     }
@@ -44,7 +45,9 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     }*/
 
     @Override
-    public void notifierPlateau() { //Pour la présentation plateau, qui est abonné à la présentation de chaque case.
+    public void notifierPlateau() {
+        Log.d("TicTacToe : PresentationCase", "notifierPlateau()");
+        //Pour la présentation plateau, qui est abonné à la présentation de chaque case.
     for(IObservateurPlateau observateur : liste_observateurs){
        observateur.actualiserPresPlateau(this);
 
@@ -55,7 +58,7 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
     @Override
     public void ajouterObs(IObservateurPlateau arg_obs) {
-
+        Log.d("TicTacToe : PresentationCase", "ajouterObs");
      liste_observateurs.add(arg_obs);
 
     }
@@ -63,26 +66,32 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
 
     public void case_cliquee(){
+        Log.d("TicTacToe : PresentationCase", "case_cliquee()");
         notifierPlateau();
     }
 
 
     @Override
     public void actualiser()  {
+        Log.d("TicTacToe : PresentationCase", "actualiser()");
     EEtat tamp = leModele.getEtatCase();
+        Log.d("TicTacToe : PresentationCase", "actualiser()" + tamp.toString());
       switch (tamp){
           case  CLIQUABLE:
             break; //Ajouter la gestion de l'erreur. (Avec la construction actuelle, elle ne devrait jamais arriver);
 
           case CROIX:
-         laVue.mettreCroix();
+         laVue.mettreCroix(); break;
 
-        case CERCLE :
-         laVue.mettreCercle();
+          case CERCLE :
+
+         laVue.mettreCercle(); break;
         }
     }
 
-    public ModelCase getLeModele() {
+    public ModelCase getModele() {
+
+       // Log.d("TicTacToe : PresentationCase", "getLeModele");
         return leModele;
     }
 

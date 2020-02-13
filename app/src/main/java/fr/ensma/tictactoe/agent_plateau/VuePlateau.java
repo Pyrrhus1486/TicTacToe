@@ -53,9 +53,9 @@ public class VuePlateau extends LinearLayout {
 
     private void initVue(Context ctx) {
         laRacine = inflate(ctx, R.layout.activity_plateau, this);
-        Log.d("TicTacToe : VuePlateau", "Instantiation");
+     //   Log.d("TicTacToe : VuePlateau", "Instantiation");
       //
-        //leGridLayout = laRacine.findViewById(R.id.plateauId);
+
         V11 = laRacine.findViewById(R.id.case11);
         V12 = laRacine.findViewById(R.id.case12);
         V13 = laRacine.findViewById(R.id.case13);
@@ -65,6 +65,7 @@ public class VuePlateau extends LinearLayout {
         V31 = laRacine.findViewById(R.id.case31);
         V32 = laRacine.findViewById(R.id.case32);
         V33 = laRacine.findViewById(R.id.case33);
+
     }
 
 
