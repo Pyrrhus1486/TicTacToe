@@ -74,5 +74,6 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
     public void onClick(View v) {
 
         cliquee();
+
     }
 }

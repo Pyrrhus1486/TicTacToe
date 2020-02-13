@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.ensma.tictactoe.agent_case.PresentationCase;
+import fr.ensma.tictactoe.agent_global.PresentationJeu;
 import fr.ensma.tictactoe.observation.IObservable;
 import fr.ensma.tictactoe.observation.IObservateur;
 import fr.ensma.tictactoe.observation.IObservateurPlateau;
