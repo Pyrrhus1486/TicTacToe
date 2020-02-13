@@ -20,7 +20,7 @@ public class ModelPlateau {
 
     public ModelPlateau() {
 
-
+     //   plateau = new ModelCase[3][3];
         caseSuivante = EEtat.CROIX; // Initialement, on commence avec une croix;
 
         for (int i = 0; i < 3; i++) {

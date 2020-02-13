@@ -23,22 +23,30 @@ public class VuePlateau extends LinearLayout {
     private VueCase V32;
     private VueCase V33;
 
+    private Presentation_plateau pp;
     private View laRacine;
 
     public VuePlateau(Context context) {
         super(context);
+       // pp = new Presentation_plateau(context,this);
         initVue(context);
     }
 
     public VuePlateau(Context context, AttributeSet attrs) {
         super(context, attrs);
+       // pp = new Presentation_plateau(context,this);
         initVue(context);
+
     }
     public VuePlateau(Context ctx, AttributeSet attrs, int defStyle) {
         super(ctx, attrs, defStyle);
+        //pp = new Presentation_plateau(ctx,this);
         initVue(ctx);
     }
 
+    public void setPresentationPlateau (Presentation_plateau pp) {
+        this.pp = pp;
+    }
 /*    public GridLayout getLeGridLayout() {
         return leGridLayout;
     }*/
@@ -46,7 +54,7 @@ public class VuePlateau extends LinearLayout {
     private void initVue(Context ctx) {
         laRacine = inflate(ctx, R.layout.activity_plateau, this);
         Log.d("TicTacToe : VuePlateau", "Instantiation");
-
+      //
         //leGridLayout = laRacine.findViewById(R.id.plateauId);
         V11 = laRacine.findViewById(R.id.case11);
         V12 = laRacine.findViewById(R.id.case12);
@@ -61,10 +69,6 @@ public class VuePlateau extends LinearLayout {
 
 
 
-/*    public void cliquee(VueCase v) {
-        v.cliquee();
-
-    }*/
 
     public VueCase getV11() {
         return V11;

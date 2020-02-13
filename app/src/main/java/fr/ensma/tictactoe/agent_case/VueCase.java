@@ -33,6 +33,8 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
     }
 
 
+
+
     private void initVue(Context ctx) {
 
         laRacine = inflate(ctx, R.layout.activity_case, this);
@@ -50,6 +52,7 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
     public void setPres(PresentationCase pres) {
         this.pres = pres;
     }
+
 
     public void mettreCroix () {
     leBoutonImage.setBackgroundResource(R.drawable.ic_cross);

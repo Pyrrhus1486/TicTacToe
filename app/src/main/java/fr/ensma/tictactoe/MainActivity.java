@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity{
 
         leJeu = findViewById(R.id.jeuId);
 
-       // case1 = findViewById(R.id.case1);
-      //  case1.mettreCercle();
-
 
 
     }

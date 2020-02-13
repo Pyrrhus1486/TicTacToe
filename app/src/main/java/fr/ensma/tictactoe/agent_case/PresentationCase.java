@@ -10,9 +10,13 @@ import fr.ensma.tictactoe.observation.IObservateurPlateau;
 import fr.ensma.tictactoe.types_base.EEtat;
 
 import android.content.Context;
+import android.util.Log;
 
 
 public class PresentationCase implements IObservablePlateau, IObservateur {
+
+
+
 
     private VueCase laVue;
 
@@ -24,7 +28,7 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     private List<IObservateurPlateau> liste_observateurs;
 
     public PresentationCase(Context arg_context, VueCase arg_ma_vue, ModelCase arg_mon_modele){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
-
+        Log.d("TicTacToe : Pres_Case", "Instantiation");
         laVue = arg_ma_vue;
         laVue.setPres(this);
 
@@ -35,7 +39,9 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
     }
 
-
+/*    public void setLaVue(VueCase laVue) {
+        this.laVue = laVue;
+    }*/
 
     @Override
     public void notifierPlateau() { //Pour la présentation plateau, qui est abonné à la présentation de chaque case.

@@ -28,7 +28,7 @@ public class VueJeu extends ConstraintLayout {
     private TextView leLabelVictoire; //va afficher le gagnant à la fin de partie;
     private ProgressBar leBar;
 
-
+    //private PresentationJeu pj;
 
     public VueJeu(Context context) {
         super(context);
