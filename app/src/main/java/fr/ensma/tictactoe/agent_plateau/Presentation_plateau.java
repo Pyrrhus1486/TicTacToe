@@ -37,7 +37,7 @@ public class Presentation_plateau implements IObservateurPlateau {
 
     public void instancierPresentations(Context arg_context){//On instancie les présentations, en leur passant en référence les VueCases qui ont été instanciées par la vuePlateau, et les ModelCases instanciées par le modelPlateau
         Log.d("TicTacToe : PresPlateau", "Instantiation");
-        PresentationCase pres11 = new PresentationCase( arg_context, vuePlateau.getV11(), modelPlateau.getPlateau()[0][0]);
+        PresentationCase pres11 = new PresentationCase( arg_context, vuePlateau.getV11(), modelPlateau.getCase(0,0));
         PresentationCase pres12 = new PresentationCase( arg_context, vuePlateau.getV12(), modelPlateau.getPlateau()[0][1]);
         PresentationCase pres13 = new PresentationCase( arg_context, vuePlateau.getV13(), modelPlateau.getPlateau()[0][2]);
         PresentationCase pres21 = new PresentationCase( arg_context, vuePlateau.getV21(), modelPlateau.getPlateau()[1][0]);
