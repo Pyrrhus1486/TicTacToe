@@ -39,7 +39,7 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
 
         laRacine = inflate(ctx, R.layout.activity_case, this);
         leBoutonImage = laRacine.findViewById(R.id.imageBoutonId);
-        Log.d("TicTacToe : VueCase", "Instantiation");
+       // Log.d("TicTacToe : VueCase", "Instantiation");
 
         //pres = new PresentationCase();
         //ModelCase m = new ModelCase();

@@ -19,6 +19,6 @@ public class ModelJeu {
     }
 
     public void changerJoueurCourant() {
-
+ //TODO
     }
 }

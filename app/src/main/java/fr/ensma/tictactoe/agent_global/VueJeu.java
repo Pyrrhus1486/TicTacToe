@@ -28,10 +28,11 @@ public class VueJeu extends ConstraintLayout {
     private TextView leLabelVictoire; //va afficher le gagnant à la fin de partie;
     private ProgressBar leBar;
 
-    //private PresentationJeu pj;
+    private PresentationJeu pj;
 
     public VueJeu(Context context) {
         super(context);
+
         initVue(context);
     }
 
@@ -47,12 +48,18 @@ public class VueJeu extends ConstraintLayout {
     }
 
 
+    public VuePlateau getVuePlateau() {
+        return lePlateau;
+    }
 
     private void initVue(Context context) {
 
+
+
+
         laRacine = inflate(context, R.layout.activity_jeu, this);
-        Log.d("TicTacToe : VueJeu", "Instantiation");
-        leRoot =  laRacine.findViewById(R.id.rootId);
+       // Log.d("TicTacToe : VueJeu", "Instantiation");
+       // leRoot =  laRacine.findViewById(R.id.rootId);
 
         leBouton = laRacine.findViewById(R.id.buttonPlayId);
         lePlateau = laRacine.findViewById(R.id.vuePlateauId);
@@ -60,8 +67,19 @@ public class VueJeu extends ConstraintLayout {
         leBar = laRacine.findViewById(R.id.progressBarId);
         leLabelVictoire = laRacine.findViewById(R.id.textViewVictoryId);
 
+
+       // pj = new PresentationJeu(context,this);
+
     }
 
+    public void modifierLabel (String arg) {
+        Log.d("TicTacToe : VueJeu", "changeLabel");
+
+
+
+
+        leLabelVictoire.setText(arg);
+    }
 
 
 
