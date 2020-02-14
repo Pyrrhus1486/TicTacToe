@@ -76,7 +76,7 @@ public class VueJeu extends ConstraintLayout {
 
         leBouton = laRacine.findViewById(R.id.buttonPlayId);
 
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        //sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         leLabel = laRacine.findViewById(R.id.textViewId);
         leBar = laRacine.findViewById(R.id.progressBarId);

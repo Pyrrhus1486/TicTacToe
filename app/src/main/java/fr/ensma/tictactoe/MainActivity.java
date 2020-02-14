@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity{
 
     private SensorManager sensorManager;
     private SensorEventListener sensorEventListener;
+    Sensor accelerometer;
   //  private HandlerThread mSensorThread;
     //private Handler mSensorHandler;
     float x,y,z;
@@ -53,27 +54,14 @@ public class MainActivity extends AppCompatActivity{
         pj = new PresentationJeu(this.getBaseContext(),leJeu);
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        sensorEventListener = new SensorEventListener() {
-            @Override
-            public void onSensorChanged(final SensorEvent event) {
-                Log.d("TicTacToe : Main", "position");
-                x=event.values[0];
-                y=event.values[1];
-                z=event.values[2];
-                leJeu.setXYZ(x,y,z);
-            }
+        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 
-            @Override
-            public void onAccuracyChanged(final Sensor sensor, final int accuracy) {
-                //No op
-            }
+        }
 
 
-
-        };
 
     }
 
 
 
-}
+
