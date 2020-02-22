@@ -24,7 +24,6 @@ public class PresentationJeu implements IObservateur {
         pp.ajouterObs(this);
     }
 
-
     @Override
     public void actualiser() {
         Log.d("TicTacToe : Pres_Jeu", "actualiser");

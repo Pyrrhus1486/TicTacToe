@@ -115,7 +115,7 @@ public class ModelPlateau {
         }
 
 
-        //Finalement, personne n'a gagné et le plateau est plein : match nul.
+        //Finalement, personne n'a gagné et le plateau est plein : match nul
 
         return EStatutPartie.MATCHNUL;
 
