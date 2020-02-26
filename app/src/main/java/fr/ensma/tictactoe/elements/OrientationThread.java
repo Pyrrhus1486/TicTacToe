@@ -1,4 +1,5 @@
-package fr.ensma.tictactoe.elements;
+
+/*package fr.ensma.tictactoe.elements;
 
 import android.app.Activity;
 import android.hardware.Sensor;
@@ -15,27 +16,26 @@ class SensorAccelerationTutoActivity extends Thread implements SensorEventListen
     SensorManager sensorManager;
 
     // L'accéléromètre
-    Sensor accelerometer;
-
+    Sensor accelerometer;*/
 /***************************************************************************/
 /** Manage life cycle ******************************************************/
     /***************************************************************************/
 
     // Appelé à la création de l'activité. */
-    @Override
+  /*  @Override
     public void onRun (Bundle savedInstanceState) {
         Log.d("TicTacToe : OrientationThread", "Instantiation");
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);*/
         // Faire quelque chose
         // Gérer les capteurs :
         // Instancier le gestionnaire des capteurs, le SensorManager
-        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        //sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         // Instancier l'accéléromètre
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        //accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         // Faire d'autres trucs
-    }
+   // }
 
-    @Override
+  /*  @Override
     protected void onPause() {
         // unregister the sensor (désenregistrer le capteur)
         sensorManager.unregisterListener(this, accelerometer);
@@ -44,21 +44,21 @@ class SensorAccelerationTutoActivity extends Thread implements SensorEventListen
 
     @Override
     protected void onResume() {
-        /* Ce qu'en dit Google dans le cas de l'accéléromètre :
+        *//* Ce qu'en dit Google dans le cas de l'accéléromètre :
          * «  Ce n'est pas nécessaire d'avoir les évènements des capteurs à un rythme trop rapide.
          * En utilisant un rythme moins rapide (SENSOR_DELAY_UI), nous obtenons un filtre
          * automatique de bas-niveau qui "extrait" la gravité  de l'accélération.
          * Un autre bénéfice étant que l'on utilise moins d'énergie et de CPU. »
-         */
+         *//*
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_UI);
         super.onResume();
     }
-
+*/
 /********************************************************************/
 /** SensorEventListener*************************************************/
     /********************************************************************/
 
-    @Override
+  /*  @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // Rien à faire la plupart du temps
     }
@@ -74,4 +74,4 @@ class SensorAccelerationTutoActivity extends Thread implements SensorEventListen
         }
     }
 
-}
+}*/

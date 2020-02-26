@@ -20,7 +20,7 @@ import androidx.constraintlayout.widget.ConstraintSet;
 
 import fr.ensma.tictactoe.R;
 import fr.ensma.tictactoe.agent_plateau.VuePlateau;
-import fr.ensma.tictactoe.elements.OrientationThread;
+//import fr.ensma.tictactoe.elements.OrientationThread;
 
 import static fr.ensma.tictactoe.types_base.EEtat.CROIX;
 
@@ -41,7 +41,7 @@ public class VueJeu extends ConstraintLayout {
     private TextView leLabelVictoire; //va afficher le gagnant à la fin de partie;
     private ProgressBar leBar;
 
-    private PresentationJeu pj;
+
 
     public VueJeu(Context context) {
         super(context);
@@ -115,6 +115,7 @@ public class VueJeu extends ConstraintLayout {
 
     public void start () {
                if(leBar.getProgress()>0||portableTourne()) {srd.arret();
+                   lePlateau.reset();
                }
 
                 srd =  new SourceDonnee();
@@ -132,8 +133,6 @@ public class VueJeu extends ConstraintLayout {
                 srd.arret(); break;
 
         }
-
-
         leLabelVictoire.setText(arg);
     }
 

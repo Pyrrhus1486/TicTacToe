@@ -68,7 +68,19 @@ public class VuePlateau extends LinearLayout {
 
     }
 
+    public void reset(){
+        V11.reset();
+        V12.reset();
+        V13.reset();
+        V21.reset();
+        V22.reset();
+        V23.reset();
+        V31.reset();
+        V32.reset();
+        V33.reset();
+        pp.reset();
 
+    }
 
 
     public VueCase getV11() {

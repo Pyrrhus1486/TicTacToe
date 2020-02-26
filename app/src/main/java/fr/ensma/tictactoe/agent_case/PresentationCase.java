@@ -10,6 +10,7 @@ import fr.ensma.tictactoe.observation.IObservateurPlateau;
 import fr.ensma.tictactoe.types_base.EEtat;
 
 import android.content.Context;
+import android.nfc.Tag;
 import android.util.Log;
 
 
@@ -28,14 +29,14 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     private List<IObservateurPlateau> liste_observateurs;
 
     public PresentationCase(Context arg_context, VueCase arg_ma_vue){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
-        Log.d("TicTacToe : Pres_Case", "Instantiation");
+      //  Log.d("TicTacToe : Pres_Case", "Instantiation");
         laVue = arg_ma_vue;
         laVue.setPres(this);
-        Log.d("TicTacToe : Pres_Case", "Instantiation - model");
+      //  Log.d("TicTacToe : Pres_Case", "Instantiation - model");
         leModele = new ModelCase();
-        Log.d("TicTacToe : Pres_Case", "Instantiation - le modele ajouté");
+      //  Log.d("TicTacToe : Pres_Case", "Instantiation - le modele ajouté");
         leModele.ajouterObs(this);
-        Log.d("TicTacToe : Pres_Case", "Instantiation - observateur ajouté");
+      //  Log.d("TicTacToe : Pres_Case", "Instantiation - observateur ajouté");
         liste_observateurs = new ArrayList<IObservateurPlateau>();
 
     }
@@ -90,9 +91,14 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     }
 
     public ModelCase getModele() {
-
        // Log.d("TicTacToe : PresentationCase", "getLeModele");
         return leModele;
     }
 
+    public void reset(){
+
+        leModele = new ModelCase();
+
+        leModele.ajouterObs(this);
+    }
 }

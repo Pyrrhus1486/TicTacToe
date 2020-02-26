@@ -56,11 +56,9 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
 
     public void mettreCroix () {
     leBoutonImage.setBackgroundResource(R.drawable.ic_cross);
-    //TODO change joeur
     }
     public void mettreCercle () {
         leBoutonImage.setBackgroundResource(R.drawable.ic_circle);
-    //TODO : change joeur
     }
 
     public void cliquee(){
@@ -72,8 +70,12 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
         cliquee();
+    }
+
+    public void reset () {
+        pres.reset();
+        leBoutonImage.setBackgroundResource(R.drawable.ic_launcher_background);
 
     }
 }

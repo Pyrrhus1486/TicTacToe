@@ -80,36 +80,13 @@ public class Presentation_plateau implements IObservateurPlateau, IObservable {
         listePresentations.add(pres31);
         listePresentations.add(pres32);
         listePresentations.add(pres33);
-       // vuePlateau.setPresentationPlateau(this);
-
-/*        pres11.setLaVue(vuePlateau.getV11());
-        pres12.setLaVue(vuePlateau.getV12());
-        pres13.setLaVue(vuePlateau.getV13());
-        pres21.setLaVue(vuePlateau.getV21());
-        pres22.setLaVue(vuePlateau.getV22());
-        pres23.setLaVue(vuePlateau.getV23());
-        pres31.setLaVue(vuePlateau.getV31());
-        pres32.setLaVue(vuePlateau.getV32());
-        pres33.setLaVue(vuePlateau.getV33());*/
-
-/*
-        vuePlateau.getV11().setPres(pres11);
-        vuePlateau.getV11().setPres(pres12);
-        vuePlateau.getV11().setPres(pres13);
-        vuePlateau.getV11().setPres(pres21);
-        vuePlateau.getV11().setPres(pres22);
-        vuePlateau.getV11().setPres(pres23);
-        vuePlateau.getV11().setPres(pres31);
-        vuePlateau.getV11().setPres(pres32);
-        vuePlateau.getV11().setPres(pres33);
-*/
-
-
 
     }
 
 
-
+    public void reset() {
+        modelPlateau = new ModelPlateau();
+    }
 
 
     public void sAbonnerPresentations(){

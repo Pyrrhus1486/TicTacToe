@@ -48,15 +48,11 @@ public class ModelPlateau {
 
     public EStatutPartie modifierCase(ModelCase arg_case) {
         EEtat tamp = typeMarqueur();
-
         arg_case.setEtatCase(tamp);
        // Log.d("TicTacToe : ModelPlateau", "modifierCase()"+ TesterCoupGagnant(tamp).toString());
     return TesterCoupGagnant(tamp);
-
     }
-
     public EStatutPartie TesterCoupGagnant(EEtat arg_marqueur) {
-
         //lignes
         for (int i = 0; i < 3; i++) {
             int compteur = 0;
@@ -64,17 +60,14 @@ public class ModelPlateau {
                 if (plateau[i][j].getEtatCase() == arg_marqueur) {
                     compteur += 1;
                 }
-
             }
             if (compteur == 3) {
-
                // Log.d("TicTacToe : ModelPlateau", "TesterCOupGagant()"+ arg_marqueur.toString()+"a gagné sur une des lignes");
                 return ConversionEtatStatut.convertir(arg_marqueur);
 
             }
         }
         //colonnes
-
         for (int i = 0; i < 3; i++) {
             int compteur = 0;
             for (int j = 0; j < 3; j++) {
@@ -87,24 +80,16 @@ public class ModelPlateau {
                 return ConversionEtatStatut.convertir(arg_marqueur);
             }
         }
-
         //diagonales
-
         if (plateau[0][0].getEtatCase() == arg_marqueur && plateau[1][1].getEtatCase() == arg_marqueur && plateau[2][2].getEtatCase() == arg_marqueur) {
           //  Log.d("TicTacToe : ModelPlateau", "TesterCOupGagant()"+ arg_marqueur.toString()+"a gagné sur une des diags");
             return ConversionEtatStatut.convertir(arg_marqueur);
-
         }
-
         if (plateau[0][2].getEtatCase() == arg_marqueur && plateau[1][1].getEtatCase() == arg_marqueur && plateau[2][0].getEtatCase() == arg_marqueur) {
            // Log.d("TicTacToe : ModelPlateau", "TesterCOupGagant()"+ arg_marqueur.toString()+"a gagné sur une des diags");
             return ConversionEtatStatut.convertir(arg_marqueur);
-
         }
-
-
         //Test si le plateau est plein. S'il contient au moins une case à l'état Cliquable, il n'est pas plein donc la partie continue.
-
         for (int i = 0; i < 3; i++) {
             int compteur = 0;
             for (int j = 0; j < 3; j++) {
@@ -113,13 +98,11 @@ public class ModelPlateau {
                 }
             }
         }
-
-
         //Finalement, personne n'a gagné et le plateau est plein : match nul.
-
         return EStatutPartie.MATCHNUL;
-
-
-
     }
+/*    public void reset(){
+        plateau = new ModelCase[3][3];
+        caseSuivante = EEtat.CROIX;
+    }*/
 }

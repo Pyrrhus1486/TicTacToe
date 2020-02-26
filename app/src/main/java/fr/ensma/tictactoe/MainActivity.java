@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity{
 
     private PresentationJeu pj;
 
-    private SensorManager sensorManager;
-    private SensorEventListener sensorEventListener;
-    Sensor accelerometer;
+  //  private SensorManager sensorManager;
+  //  private SensorEventListener sensorEventListener;
+  //  Sensor accelerometer;
   //  private HandlerThread mSensorThread;
     //private Handler mSensorHandler;
     float x,y,z;
@@ -52,9 +52,11 @@ public class MainActivity extends AppCompatActivity{
         leJeu = findViewById(R.id.jeuId);
 
         pj = new PresentationJeu(this.getBaseContext(),leJeu);
+/*
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+*/
 
         }
 
