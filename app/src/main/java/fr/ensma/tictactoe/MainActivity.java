@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity{
 
         leJeu = findViewById(R.id.jeuId);
 
-        pj = new PresentationJeu(this.getBaseContext(),leJeu);
+       // pj = new PresentationJeu(this.getBaseContext(),leJeu);
 /*
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);

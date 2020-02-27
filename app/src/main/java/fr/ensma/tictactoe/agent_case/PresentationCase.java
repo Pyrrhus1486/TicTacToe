@@ -15,20 +15,12 @@ import android.util.Log;
 
 
 public class PresentationCase implements IObservablePlateau, IObservateur {
-
-
-
-
     private VueCase laVue;
-
-
-
     private ModelCase leModele;
-
-
     private List<IObservateurPlateau> liste_observateurs;
 
-    public PresentationCase(Context arg_context, VueCase arg_ma_vue){ // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
+    public PresentationCase(Context arg_context, VueCase arg_ma_vue){
+        // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
       //  Log.d("TicTacToe : Pres_Case", "Instantiation");
         laVue = arg_ma_vue;
         laVue.setPres(this);
@@ -49,6 +41,7 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     public void notifierPlateau() {
         Log.d("TicTacToe : PresentationCase", "notifierPlateau()");
         //Pour la présentation plateau, qui est abonné à la présentation de chaque case.
+
     for(IObservateurPlateau observateur : liste_observateurs){
        observateur.actualiserPresPlateau(this);
 
@@ -98,7 +91,11 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     public void reset(){
 
         leModele = new ModelCase();
-
+         Log.d("TicTacToe : PresentationCase", "reset()");
         leModele.ajouterObs(this);
+        liste_observateurs = new ArrayList<IObservateurPlateau>();
+        Log.d("TicTacToe : PresentationCase", "reset() terminé");
+
+
     }
 }

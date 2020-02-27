@@ -84,8 +84,12 @@ public class Presentation_plateau implements IObservateurPlateau, IObservable {
     }
 
 
-    public void reset() {
+    public void reset(Context ctx) {
         modelPlateau = new ModelPlateau();
+        instancierPresentations(ctx);
+    }
+    public ModelPlateau getModelPlateau (){
+        return modelPlateau;
     }
 
 
@@ -100,7 +104,7 @@ public class Presentation_plateau implements IObservateurPlateau, IObservable {
 
         statut= modelPlateau.modifierCase(arg_pres.getModele());
         notifier();
-        Log.d("TicTacToe :Presentation_plateau", "ACtualiser pres plateau"+ "statut  = "+ statut.toString());
+        Log.d("TicTacToe :Pres_plateau", "Actualiser pres plateau"+ "statut  = "+ statut.toString());
 
     }
 

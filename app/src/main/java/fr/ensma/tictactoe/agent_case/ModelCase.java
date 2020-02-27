@@ -19,9 +19,9 @@ public class ModelCase implements IObservable {
 
 
     public ModelCase(){
-       // Log.d("TicTacToe : ModelCase", "Instantiation");
+        Log.d("TicTacToe : ModelCase", "Instantiation");
         etatCase= EEtat.CLIQUABLE;
-       // Log.d("TicTacToe : ModelCase", "Instantiation terminée");
+        Log.d("TicTacToe : ModelCase", "Instantiation terminée");
         liste_observateurs = new ArrayList<IObservateur>();
     }
 
@@ -29,7 +29,7 @@ public class ModelCase implements IObservable {
     public void setEtatCase(EEtat etatCase) {
         this.etatCase = etatCase;
         notifier();
-        Log.d("TicTacToe : PresentationCase", "setEtatCase()" + etatCase.toString());
+        Log.d("TicTacToe : ModelCase", "setEtatCase()" + etatCase.toString());
     }
 
     public EEtat getEtatCase() {

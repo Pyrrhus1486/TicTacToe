@@ -13,23 +13,35 @@ public class PresentationJeu implements IObservateur {
     private VueJeu vj;
     private ModelJeu mj;
     private EStatutPartie statut;
-
+    private Context context;
 
     public PresentationJeu(Context ctx, VueJeu vj) {
        // Log.d("TicTacToe : Pres_Jeu", "Instantiation");
         this.vj = vj;
         pp = new Presentation_plateau(ctx, vj.getVuePlateau());
         mj = new ModelJeu();
-
         pp.ajouterObs(this);
+        context =ctx;
     }
-
+    public void reset(Context ctx, VueJeu vj){
+        Log.d("TicTacToe : Pres_Jeu", "reset(ctx,vj)");
+        pp = new Presentation_plateau(ctx, vj.getVuePlateau());
+        mj = new ModelJeu();
+        pp.ajouterObs(this);
+        context =ctx;
+    }
 
     @Override
     public void actualiser() {
-        Log.d("TicTacToe : Pres_Jeu", "actualiser");
+       // Log.d("TicTacToe : Pres_Jeu", "actualiser");
         statut = pp.getStatut();
-        vj.modifierLabel(statut.toString());
+        vj.start(context,false);
+
+        if (statut == EStatutPartie.CERCLEGAGNE) { vj.modifierLabel("Cercles ont gagné");}
+        if (statut == EStatutPartie.CROIXGAGNE) { vj.modifierLabel("Croix ont gagné");}
+        if (statut == EStatutPartie.ENCOURS) { vj.modifierLabel("Le jeu est en cours");}
+        if (statut == EStatutPartie.MATCHNUL) { vj.modifierLabel("Match nul");}
+
     }
 
 

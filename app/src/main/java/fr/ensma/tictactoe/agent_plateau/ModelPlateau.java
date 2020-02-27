@@ -21,17 +21,9 @@ public class ModelPlateau {
 
 
     public ModelPlateau() {
-        Log.d("TicTacToe : ModelPlateau", "Instantiation");
+        Log.d("TicTacToe : ModelPlat", "Instantiation");
         plateau = new ModelCase[3][3];
         caseSuivante = EEtat.CROIX; // Initialement, on commence avec une croix;
-
-/*        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                Log.d("TicTacToe : ModelPlateau", "Instantiation - Model Case");
-                plateau[i][j] = new ModelCase();
-            }
-        }*/
-
     }
 
     public EEtat typeMarqueur() {
@@ -43,7 +35,6 @@ public class ModelPlateau {
             caseSuivante = EEtat.CROIX;
             return EEtat.CERCLE;
         }
-
     }
 
     public EStatutPartie modifierCase(ModelCase arg_case) {
@@ -52,6 +43,12 @@ public class ModelPlateau {
        // Log.d("TicTacToe : ModelPlateau", "modifierCase()"+ TesterCoupGagnant(tamp).toString());
     return TesterCoupGagnant(tamp);
     }
+    public void tourPerdu() {
+        if (caseSuivante == EEtat.CROIX) {
+            caseSuivante = EEtat.CERCLE;
+        } else caseSuivante = EEtat.CROIX;
+    }
+
     public EStatutPartie TesterCoupGagnant(EEtat arg_marqueur) {
         //lignes
         for (int i = 0; i < 3; i++) {
@@ -64,7 +61,6 @@ public class ModelPlateau {
             if (compteur == 3) {
                // Log.d("TicTacToe : ModelPlateau", "TesterCOupGagant()"+ arg_marqueur.toString()+"a gagné sur une des lignes");
                 return ConversionEtatStatut.convertir(arg_marqueur);
-
             }
         }
         //colonnes
@@ -101,8 +97,4 @@ public class ModelPlateau {
         //Finalement, personne n'a gagné et le plateau est plein : match nul.
         return EStatutPartie.MATCHNUL;
     }
-/*    public void reset(){
-        plateau = new ModelCase[3][3];
-        caseSuivante = EEtat.CROIX;
-    }*/
 }

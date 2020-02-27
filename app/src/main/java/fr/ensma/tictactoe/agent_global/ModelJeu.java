@@ -18,7 +18,5 @@ public class ModelJeu {
         this.statutPartie = statutPartie;
     }
 
-    public void changerJoueurCourant() {
- //TODO
-    }
+
 }

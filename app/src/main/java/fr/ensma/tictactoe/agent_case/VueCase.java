@@ -1,6 +1,7 @@
 package fr.ensma.tictactoe.agent_case;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +15,7 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
     private View laRacine;
 
     private PresentationCase pres;
-
+    private int c;
     public VueCase(Context ctx) {
 
         super(ctx);
@@ -39,7 +40,7 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
 
         laRacine = inflate(ctx, R.layout.activity_case, this);
         leBoutonImage = laRacine.findViewById(R.id.imageBoutonId);
-       // Log.d("TicTacToe : VueCase", "Instantiation");
+        // Log.d("TicTacToe : VueCase", "Instantiation");
 
         //pres = new PresentationCase();
         //ModelCase m = new ModelCase();
@@ -55,9 +56,11 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
 
 
     public void mettreCroix () {
+        Log.d("TicTacToe : VueCase", "mettreCroix");
     leBoutonImage.setBackgroundResource(R.drawable.ic_cross);
     }
     public void mettreCercle () {
+        Log.d("TicTacToe : VueCase", "mettreCercle");
         leBoutonImage.setBackgroundResource(R.drawable.ic_circle);
     }
 
@@ -75,7 +78,9 @@ public class VueCase extends LinearLayout implements View.OnClickListener{
 
     public void reset () {
         pres.reset();
-        leBoutonImage.setBackgroundResource(R.drawable.ic_launcher_background);
+        Log.d("TicTacToe : VueCase", "reset");
+
+        leBoutonImage.setBackgroundResource(android.R.drawable.btn_default);
 
     }
 }

@@ -47,9 +47,7 @@ public class VuePlateau extends LinearLayout {
     public void setPresentationPlateau (Presentation_plateau pp) {
         this.pp = pp;
     }
-/*    public GridLayout getLeGridLayout() {
-        return leGridLayout;
-    }*/
+    public Presentation_plateau getPresentationPlateau() {return pp;}
 
     private void initVue(Context ctx) {
         laRacine = inflate(ctx, R.layout.activity_plateau, this);
@@ -68,7 +66,8 @@ public class VuePlateau extends LinearLayout {
 
     }
 
-    public void reset(){
+    public void reset(Context ctx){
+        Log.d("TicTacToe : VuePlateau", "reset()");
         V11.reset();
         V12.reset();
         V13.reset();
@@ -78,8 +77,8 @@ public class VuePlateau extends LinearLayout {
         V31.reset();
         V32.reset();
         V33.reset();
-        pp.reset();
-
+        //pp.reset(ctx);
+        Log.d("TicTacToe : VuePlateau", "reset() terminée");
     }
 
 
