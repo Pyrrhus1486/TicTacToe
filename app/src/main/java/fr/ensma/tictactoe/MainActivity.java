@@ -24,23 +24,10 @@ import fr.ensma.tictactoe.elements.SensorThread;
 
 public class MainActivity extends AppCompatActivity{
 
-
     private VueJeu leJeu;
     private LinearLayout leRoot;
     private ConstraintLayout leConstL;
-
-
-    private PresentationJeu pj;
-
-  //  private SensorManager sensorManager;
-  //  private SensorEventListener sensorEventListener;
-  //  Sensor accelerometer;
-  //  private HandlerThread mSensorThread;
-    //private Handler mSensorHandler;
-    float x,y,z;
-    private SensorManager sensorManager;
     private static final String TAG = "MainActivity";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +37,9 @@ public class MainActivity extends AppCompatActivity{
         leConstL= findViewById(R.id.constrLayoutId);
         leRoot = findViewById(R.id.rootId);
         leJeu = findViewById(R.id.jeuId);
-
     }
 
-
-
-
-    }
+}
 
 
 

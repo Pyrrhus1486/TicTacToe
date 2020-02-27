@@ -42,7 +42,7 @@ public class VueJeu extends ConstraintLayout implements IObservateurPos {
 
     private SensorManager sensorManager;
 
-    float x,y,z;
+
     private static final String TAG = "VueJeu";
     private VuePlateau lePlateau;
     private Button leBouton;     // PLAY (PLAY/REPLAY  sans changement)
@@ -81,48 +81,37 @@ public class VueJeu extends ConstraintLayout implements IObservateurPos {
         leBar = laRacine.findViewById(R.id.progressBarId);
         leLabelVictoire = laRacine.findViewById(R.id.textViewVictoryId);
         lePlateau = laRacine.findViewById(R.id.vuePlateauId);
-
-        lePlateau.setVisibility(View.INVISIBLE);
-
         leListeTemps = laRacine.findViewById(R.id.spinnerId);
         configurerTemps(context);
 
+        lePlateau.setVisibility(View.INVISIBLE);
 
         leBar.setMax((int)leListeTemps.getSelectedItem());
+
         btnPlayPressed=false;
         sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         startThread();
-        thread.onPause();
-
         leBouton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                thread.onResume();
-
+                thread.onPause();
                 lePlateau.setVisibility(View.VISIBLE);
                 modifierLabel("");
                 leBar.setMax((int)leListeTemps.getSelectedItem());
                 btnPlayPressed = true;
                 start(context,btnPlayPressed);
-
             }
         });
          pj = new PresentationJeu(context,this);
     }
 
     public void startThread(){
-
         thread = new SensorThread(sensorManager);
-        Log.d(TAG, "sensorThreadInstantié");
-
-        Log.d(TAG, "sensorThread starté");
         thread.ajouterObs(this);
         thread.start();
     }
 
-
     public void configurerTemps(Context ctx) {
-
         listeValeursTemps.add(5);
         listeValeursTemps.add(10);
         listeValeursTemps.add(15);
@@ -132,16 +121,8 @@ public class VueJeu extends ConstraintLayout implements IObservateurPos {
         leListeTemps.setAdapter(adapter);
     }
 
-
-
-
-    /**
-     * Commence le jeu
-     * @param ctx
-     * @param b
-     */
     public void start (Context ctx,boolean b) {
-        thread.onResume();
+                thread.onResume();
                if(leBar.getProgress()>0 && b) {
                    btnPlayPressed = false;
                    srd.arret();
@@ -158,9 +139,7 @@ public class VueJeu extends ConstraintLayout implements IObservateurPos {
                    srd =  new SourceDonnee();
                    srd.execute(new Integer(0));
                    }
-
     }
-
 
     public void modifierLabel (String arg) {
         switch (arg) {
@@ -198,26 +177,17 @@ public class VueJeu extends ConstraintLayout implements IObservateurPos {
         @Override
         protected void onProgressUpdate(Integer ... values) {
             leBar.setProgress(values[0]);
-
-
         }
         @Override
         protected void onPostExecute (Integer integer)  {
             super.onPostExecute(integer);
-
         }
-
     }
 
     @Override
     public void actualiser(float f) {
-       // thread.onPause();
-        btnPlayPressed=true;
-        start(this.getContext(),btnPlayPressed);
-
-        Log.d(TAG, "actualiser: " + f);
-
+        thread.onPause();
+        start(this.getContext(),true);
+        Log.d(TAG, "actualiser avec une valeur de changement de la position: " + f);
     }
-
-
 }

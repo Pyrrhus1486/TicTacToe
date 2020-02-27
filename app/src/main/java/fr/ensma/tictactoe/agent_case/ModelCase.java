@@ -12,11 +12,8 @@ import fr.ensma.tictactoe.types_base.EEtat;
 
 
 public class ModelCase implements IObservable {
-
-
     private List<IObservateur> liste_observateurs;
     private EEtat etatCase;
-
 
     public ModelCase(){
         Log.d("TicTacToe : ModelCase", "Instantiation");
@@ -24,7 +21,6 @@ public class ModelCase implements IObservable {
         Log.d("TicTacToe : ModelCase", "Instantiation terminée");
         liste_observateurs = new ArrayList<IObservateur>();
     }
-
 
     public void setEtatCase(EEtat etatCase) {
         this.etatCase = etatCase;
@@ -41,15 +37,11 @@ public class ModelCase implements IObservable {
         Log.d("TicTacToe : ModelCase", "notifier()");
         for(IObservateur observateur : liste_observateurs){
             observateur.actualiser();
-
         }
     }
 
     @Override
     public void ajouterObs(IObservateur arg_obs) {
-
             liste_observateurs.add(arg_obs);
-
-
     }
 }

@@ -77,7 +77,6 @@ public class VuePlateau extends LinearLayout {
         V31.reset();
         V32.reset();
         V33.reset();
-        //pp.reset(ctx);
         Log.d("TicTacToe : VuePlateau", "reset() terminée");
     }
 
@@ -117,7 +116,5 @@ public class VuePlateau extends LinearLayout {
     public VueCase getV33() {
         return V33;
     }
-
-
 
 }

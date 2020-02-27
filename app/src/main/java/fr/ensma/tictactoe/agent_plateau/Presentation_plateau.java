@@ -28,17 +28,11 @@ public class Presentation_plateau implements IObservateurPlateau, IObservable {
     public Presentation_plateau(Context arg_context, VuePlateau vp) {
         listeObsJeu = new ArrayList<IObservateur>();
         vuePlateau = vp;
-
         vuePlateau.setPresentationPlateau(this);
-
-//        modelPlateau = mp;
         modelPlateau = new ModelPlateau();
-
         listePresentations= new ArrayList<PresentationCase>();
-
         instancierPresentations(arg_context);
         sAbonnerPresentations();
-
     }
 
     public void instancierPresentations(Context arg_context){//On instancie les présentations, en leur passant en référence les VueCases qui ont été instanciées par la vuePlateau, et les ModelCases instanciées par le modelPlateau
@@ -80,14 +74,8 @@ public class Presentation_plateau implements IObservateurPlateau, IObservable {
         listePresentations.add(pres31);
         listePresentations.add(pres32);
         listePresentations.add(pres33);
-
     }
 
-
-    public void reset(Context ctx) {
-        modelPlateau = new ModelPlateau();
-        instancierPresentations(ctx);
-    }
     public ModelPlateau getModelPlateau (){
         return modelPlateau;
     }
@@ -119,7 +107,6 @@ public class Presentation_plateau implements IObservateurPlateau, IObservable {
             i.actualiser();
         }
     }
-
     @Override
     public void ajouterObs(IObservateur arg_obs) {
         listeObsJeu.add(arg_obs);
