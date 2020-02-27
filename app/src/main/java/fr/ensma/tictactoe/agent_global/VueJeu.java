@@ -4,6 +4,7 @@ import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -25,21 +26,24 @@ import java.util.List;
 
 import fr.ensma.tictactoe.R;
 import fr.ensma.tictactoe.agent_plateau.VuePlateau;
+import fr.ensma.tictactoe.elements.SensorThread;
+import fr.ensma.tictactoe.observation.IObservateurPos;
 //import fr.ensma.tictactoe.elements.OrientationThread;
 
 import static fr.ensma.tictactoe.types_base.EEtat.CROIX;
 
 
-public class VueJeu extends ConstraintLayout {
+public class VueJeu extends ConstraintLayout implements IObservateurPos {
     private View laRacine;
 
     private ConstraintLayout leRoot;
 
     private SourceDonnee srd;
 
-    //private OrientationThread orient;
-    float x,y,z;
+    private SensorManager sensorManager;
 
+    float x,y,z;
+    private static final String TAG = "VueJeu";
     private VuePlateau lePlateau;
     private Button leBouton;     // PLAY (PLAY/REPLAY  sans changement)
     private TextView leLabel;   // affiche le label du jeu : TICTACTOE
@@ -48,7 +52,7 @@ public class VueJeu extends ConstraintLayout {
     private boolean btnPlayPressed;
     private Spinner leListeTemps;
     private List listeValeursTemps = new ArrayList();
-
+    private SensorThread thread;
     private PresentationJeu pj;
 
     public VueJeu(Context context) {
@@ -86,20 +90,36 @@ public class VueJeu extends ConstraintLayout {
 
         leBar.setMax((int)leListeTemps.getSelectedItem());
         btnPlayPressed=false;
-        //orient = new OrientationThread();
-        //orient.run();
+        sensorManager = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
+        startThread();
+        thread.onPause();
+
         leBouton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+                thread.onResume();
+
                 lePlateau.setVisibility(View.VISIBLE);
                 modifierLabel("");
                 leBar.setMax((int)leListeTemps.getSelectedItem());
                 btnPlayPressed = true;
                 start(context,btnPlayPressed);
+
             }
         });
          pj = new PresentationJeu(context,this);
     }
+
+    public void startThread(){
+
+        thread = new SensorThread(sensorManager);
+        Log.d(TAG, "sensorThreadInstantié");
+
+        Log.d(TAG, "sensorThread starté");
+        thread.ajouterObs(this);
+        thread.start();
+    }
+
 
     public void configurerTemps(Context ctx) {
 
@@ -111,17 +131,9 @@ public class VueJeu extends ConstraintLayout {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         leListeTemps.setAdapter(adapter);
     }
-    public void setXYZ (float x,float y,float z) {
-        this.x=x;
-        this.y=y;
-        this.z=z;
-    }
 
-    public boolean portableTourne() {
-        if ((x>45) || (x <=-45) || (y> 45) || (y <=- 45)) {
-           return true;
-        } else return false;
-    }
+
+
 
     /**
      * Commence le jeu
@@ -129,6 +141,7 @@ public class VueJeu extends ConstraintLayout {
      * @param b
      */
     public void start (Context ctx,boolean b) {
+        thread.onResume();
                if(leBar.getProgress()>0 && b) {
                    btnPlayPressed = false;
                    srd.arret();
@@ -138,12 +151,14 @@ public class VueJeu extends ConstraintLayout {
                    pj.reset(ctx,this);
                    srd =  new SourceDonnee();
                    srd.execute(new Integer(0));
+
                } else {
                    if (leBar.getProgress()>0) {
                    srd.arret();}
                    srd =  new SourceDonnee();
                    srd.execute(new Integer(0));
-               }
+                   }
+
     }
 
 
@@ -194,7 +209,15 @@ public class VueJeu extends ConstraintLayout {
 
     }
 
+    @Override
+    public void actualiser(float f) {
+       // thread.onPause();
+        btnPlayPressed=true;
+        start(this.getContext(),btnPlayPressed);
 
+        Log.d(TAG, "actualiser: " + f);
+
+    }
 
 
 }

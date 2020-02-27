@@ -19,6 +19,7 @@ import fr.ensma.tictactoe.agent_case.VueCase;
 import fr.ensma.tictactoe.agent_global.ModelJeu;
 import fr.ensma.tictactoe.agent_global.PresentationJeu;
 import fr.ensma.tictactoe.agent_global.VueJeu;
+import fr.ensma.tictactoe.elements.SensorThread;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -37,8 +38,8 @@ public class MainActivity extends AppCompatActivity{
   //  private HandlerThread mSensorThread;
     //private Handler mSensorHandler;
     float x,y,z;
-
-
+    private SensorManager sensorManager;
+    private static final String TAG = "MainActivity";
 
 
     @Override
@@ -48,17 +49,10 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         leConstL= findViewById(R.id.constrLayoutId);
         leRoot = findViewById(R.id.rootId);
-
         leJeu = findViewById(R.id.jeuId);
 
-       // pj = new PresentationJeu(this.getBaseContext(),leJeu);
-/*
+    }
 
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-*/
-
-        }
 
 
 

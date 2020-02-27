@@ -18,7 +18,7 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
     private VueCase laVue;
     private ModelCase leModele;
     private List<IObservateurPlateau> liste_observateurs;
-
+    private static final String TAG = "PresentationCase";
     public PresentationCase(Context arg_context, VueCase arg_ma_vue){
         // La présentation sera instanciée avec le contexte en argument. Le plateau, qui instanciera la présentation, recevra le contexte depuis l'agent global
       //  Log.d("TicTacToe : Pres_Case", "Instantiation");
@@ -39,7 +39,7 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
     @Override
     public void notifierPlateau() {
-        Log.d("TicTacToe : PresentationCase", "notifierPlateau()");
+        Log.d(TAG, "notifierPlateau()");
         //Pour la présentation plateau, qui est abonné à la présentation de chaque case.
 
     for(IObservateurPlateau observateur : liste_observateurs){
@@ -52,7 +52,7 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
     @Override
     public void ajouterObs(IObservateurPlateau arg_obs) {
-        Log.d("TicTacToe : PresentationCase", "ajouterObs");
+        Log.d(TAG, "ajouterObs");
      liste_observateurs.add(arg_obs);
 
     }
@@ -60,16 +60,16 @@ public class PresentationCase implements IObservablePlateau, IObservateur {
 
 
     public void case_cliquee(){
-        Log.d("TicTacToe : PresentationCase", "case_cliquee()");
+        Log.d(TAG, "case_cliquee()");
         notifierPlateau();
     }
 
 
     @Override
     public void actualiser()  {
-        Log.d("TicTacToe : PresentationCase", "actualiser()");
+        Log.d(TAG, "actualiser()");
     EEtat tamp = leModele.getEtatCase();
-        Log.d("TicTacToe : PresentationCase", "actualiser()" + tamp.toString());
+        Log.d(TAG, "actualiser()" + tamp.toString());
       switch (tamp){
           case  CLIQUABLE:
             break; //Ajouter la gestion de l'erreur. (Avec la construction actuelle, elle ne devrait jamais arriver);
